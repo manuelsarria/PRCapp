@@ -3,13 +3,7 @@ const app = express();
 const port = 4000;
 const db = require('./db');
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
-
 app.use(express.json());
-
-// Ruta para acceder a la documentación de Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Método para agregar un nuevo trackingnumber a la tabla y actualizar el deliverydate automáticamente
 app.post('/add', (req, res) => {
